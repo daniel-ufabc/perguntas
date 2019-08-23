@@ -1,17 +1,52 @@
-<form action="/" method="GET">
-<p>
-{{ texto_pergunta }}
-</p>
-<input type="hidden" name="id" value="{{ id_pergunta }}">
-<input type="hidden" name="uuid" value="{{ uuid }}">
-{% for resposta, target in respostas.items() %}
-<label class="radio-inline" for="turma-0">
-  <input type="radio" name="resposta" value="{{ target }}" required="">
-  {{ resposta }}
-</label> 
-{% endfor %}
-<button type="submit">Próximo</button>
-<br>
-<p>Comentários</p>
-<textarea type="text" name="comment" title="Comentários"> </textarea>
-</form>
+
+<!doctype html>
+
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+
+    <title>The HTML5 Herald</title>
+    <meta name="description" content="Questionário">
+    <style>
+      body {
+      font-size: xx-large;
+      font-family: arial;
+      }
+      
+      #moldura {
+      width: 100%;
+      text-align: center;
+      }
+
+      #conteudo {
+      display: inline;
+      }
+    </style>
+    
+  </head>
+
+  <body>
+    <div id="moldura">
+      <div id="conteudo">
+	<form action="/" method="GET">
+	  <p>
+	    {{ texto_pergunta }}
+	  </p>
+	  <input type="hidden" name="id" value="{{ id_pergunta }}">
+	  <input type="hidden" name="uuid" value="{{ uuid }}">
+	  {% for resposta, target in respostas.items() %}
+	  <label class="radio-inline" for="turma-0">
+	    <input type="radio" name="resposta" value="{{ target }}" required="">
+	    {{ resposta }}
+	  </label> 
+	  {% endfor %}
+	  <button type="submit">Próximo</button>
+	  <br>
+	  <p>Comentários</p>
+	  <textarea style="width: 400px; height: 300px;" type="text" name="comment" title="Comentários"> </textarea>
+	</form>
+      </div>
+    </div>
+  </body>
+</html>
+
